@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Anohin" parent="Base.Theme.Anohin" />
+    <style name="Theme.SuperNikita" parent="Base.Theme.Anohin" />
 </resources>
