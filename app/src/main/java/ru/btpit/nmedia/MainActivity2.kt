@@ -1,8 +1,10 @@
 package ru.btpit.nmedia
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nikitascherbakov.R
 import com.example.nikitascherbakov.databinding.ActivityMainBinding
 import com.example.nikitascherbakov.databinding.PostCardBinding
 
@@ -29,7 +31,14 @@ class MainActivity2 : AppCompatActivity() {
                 }
 
                 override fun onShare(post: Post) {
-                    viewModel.shareById(post.id)
+                    val intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, post.content)
+                        type = "text/plain"
+                    }
+                    val shareIntent =
+                        Intent.createChooser(intent,getString(R.string.app_name))
+                    startActivity(shareIntent)
                 }
             })
         binding.listCool.adapter = adapter
